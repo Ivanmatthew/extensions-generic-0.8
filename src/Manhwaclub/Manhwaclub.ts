@@ -1,9 +1,10 @@
 import {
     ContentRating,
-    LanguageCode,
     SourceInfo,
-    TagType
-} from 'paperback-extensions-common'
+    BadgeColor,
+    SourceIntents
+} from '@paperback/types'
+
 import {
     getExportVersion,
     Madara
@@ -22,12 +23,8 @@ export const ManhwaclubInfo: SourceInfo = {
     websiteBaseURL: DOMAIN,
     sourceTags: [
         {
-            text: 'Notifications',
-            type: TagType.GREEN
-        },
-        {
             text: '18+',
-            type: TagType.YELLOW
+            type: BadgeColor.YELLOW
         },
     ],
     intents: SourceIntents.MANGA_CHAPTERS | SourceIntents.HOMEPAGE_SECTIONS | SourceIntents.CLOUDFLARE_BYPASS_REQUIRED | SourceIntents.SETTINGS_UI
