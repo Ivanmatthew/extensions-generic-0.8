@@ -12,12 +12,12 @@ import {
 const DOMAIN = 'https://manhwaclub.net'
 
 export const ManhwaclubInfo: SourceInfo = {
-    version: getExportVersion('0.0.1'),
+    version: getExportVersion('0.0.2'),
     name: 'ManhwaClub',
-    description: 'Extension that pulls manhwaclub',
+    description: 'Extension that pulls from Manhwaclub',
     author: 'IvanMatthew',
-    authorWebsite: 'http://github.com/IvanMatthew',
-    icon: 'icon.jpg',
+    authorWebsite: 'https://github.com/IvanMatthew',
+    icon: 'icon.png',
     contentRating: ContentRating.ADULT,
     websiteBaseURL: DOMAIN,
     sourceTags: [
@@ -29,7 +29,8 @@ export const ManhwaclubInfo: SourceInfo = {
             text: '18+',
             type: TagType.YELLOW
         },
-    ]
+    ],
+    intents: SourceIntents.MANGA_CHAPTERS | SourceIntents.HOMEPAGE_SECTIONS | SourceIntents.CLOUDFLARE_BYPASS_REQUIRED | SourceIntents.SETTINGS_UI
 }
 
 export class Manhwaclub extends Madara {
