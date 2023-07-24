@@ -13,7 +13,7 @@ import {
 const DOMAIN = 'https://manhwaclub.net'
 
 export const ManhwaclubInfo: SourceInfo = {
-    version: getExportVersion('0.0.2'),
+    version: getExportVersion('0.0.3'),
     name: 'ManhwaClub',
     description: 'Extension that pulls from Manhwaclub',
     author: 'IvanMatthew',
