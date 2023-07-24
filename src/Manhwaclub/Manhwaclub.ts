@@ -34,13 +34,9 @@ export class Manhwaclub extends Madara {
 
     baseUrl: string = DOMAIN
 
-    languageCode: LanguageCode = LanguageCode.ENGLISH
-
     override hasAdvancedSearchPage = true
 
     override sourceTraversalPathName = 'manga'
 
     override searchMangaSelector = 'div.c-tabs-item > div.row'
-
-    override userAgent = false
 }
