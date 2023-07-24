@@ -36,7 +36,7 @@ export class Manhwaclub extends Madara {
 
     override hasAdvancedSearchPage = true
 
-    override sourceTraversalPathName = 'manga'
+    //override directoryPath = 'manga' // already set by default
 
     override searchMangaSelector = 'div.c-tabs-item > div.row'
 }
