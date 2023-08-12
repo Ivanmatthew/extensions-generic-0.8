@@ -70,6 +70,11 @@ export abstract class MangaStream implements ChapterProviding, HomePageSectionsP
                 if (response.headers.location) {
                     response.headers.location = response.headers.location.replace(/^http:/, 'https:')
                 }
+
+                if (response.status === 302) {
+                    return this.implicit302Pointer(response)
+                }
+
                 return response
             }
         }
@@ -604,5 +609,23 @@ export abstract class MangaStream implements ChapterProviding, HomePageSectionsP
             case 404:
                 throw new Error(`The requested page ${response.request.url} was not found!`)
         }
+    }
+
+    implicit302Pointer(response: Response): Promise<Response> {    
+        const newLocation = response.headers.Location // always ends with a '/' e.g. 'https://google.com/', therefore remove the last character (next line)
+        const actualNewLocation = newLocation.substring(0, newLocation.length-1)
+    
+        const oldRequest = response.request
+    
+        const request = App.createRequest({
+            url: actualNewLocation,
+            method: oldRequest.method,
+            headers: oldRequest.headers,
+            param: oldRequest.param,
+            data: oldRequest.data,
+            cookies: oldRequest.cookies
+        })
+    
+        return this.requestManager.schedule(request, 1)
     }
 }
